@@ -26,10 +26,9 @@ class PostsController < ApplicationController
     @post.likes += 1
     @post.save
 
-    if request.xhr?
-      head :ok
-    else
-      redirect_to posts_path
+    respond_to do |format|
+      format.js   {}
+      format.json { render json: @post, status: :created, location: @post }
     end
   end
 
