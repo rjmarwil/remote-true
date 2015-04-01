@@ -1,0 +1,38 @@
+<br/>
+
+<%= form_for(@post, remote: true, html:{class:"form-horizontal"}) do |f| %>
+
+<div class="form-group row">
+  <%= f.label "Write a Post", :class => "control-label col-md-2" %>
+  <div class="form-controls col-md-4">
+    <%= f.text_field :text, :class => 'form-control' %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <div class="col-md-offset-2 col-md-4">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+</div>
+
+<% end %>
+
+<ul id="posts">
+<%= render @posts %>
+</ul>
+
+<!-- <table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Post</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @posts.each do |post| %>
+      <tr>
+        <td><%# post.text %></td>
+      </tr>
+    <%# end %>
+  </tbody>
+</table> -->
