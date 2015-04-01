@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.likes = 0
 
     respond_to do |format|
       if @post.save
@@ -20,9 +21,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    @post.likes += 1
+    @post.save
+
+    if request.xhr?
+      head :ok
+    else
+      redirect_to posts_path
+    end
+  end
+
   private
     def post_params
-      params.require(:post).permit(:text)
+      params.require(:post).permit(:text, :likes)
     end
 
 end
