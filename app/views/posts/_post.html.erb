@@ -3,9 +3,9 @@
     <%= post.text %>
   </td>
   <td>
-    <%= link_to image_tag('meh-button.png', width:"25", height:"25"), like_post_path(post), method: :like, remote: true %>
+    <%= link_to image_tag('meh-button.png', width:"25", height:"25"), like_post_path(post), method: :post, remote: true %>
   </td>
-  <td id="like">
+  <td id="like-<%= post.id %>">
     <%= post.likes %>
   </td>
 </tr>
