@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  post "posts/:id/like" => "posts#like", as: :like_post
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
